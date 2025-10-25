@@ -1,0 +1,23 @@
+{
+  "name": "contact-list",
+  "version": "1.0.0",
+  "description": "Contact list project",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karoflow/hello-nodejs.git"
+  },
+  "keywords": [
+    "nodejs"
+  ],
+  "author": "Karoflow",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/karoflow/hello-nodejs/issues"
+  },
+  "homepage": "https://github.com/karoflow/hello-nodejs#readme"
+}
