@@ -14,7 +14,7 @@ async function loadContacts() {
   try {
     const contactsListJson = await fs.readFile(CONTACTS_LIST_FILE_PATH, 'utf8');
     contactsList.push(
-      ...contactsListJson
+      ...JSON.parse(contactsListJson)
     );
   } catch (error) {
     throw error;
