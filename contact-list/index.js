@@ -56,26 +56,50 @@ function showContactsList() {
 }
 
 
+async function deleteContactId() {
+  if (contactsList.length < 1) {
+    console.error('No contact found.');
+    return;
+  }
+
+  showContactsList();
+
+  const _id = Number(await rl.question('Enter Contact ID: '));
+  const i = contactsList.findIndex(({id}) => id === _id);
+  if (i === -1) {
+    console.error('Could not find contact with id ' + _id);
+    return;
+  }
+  contactsList.splice(i, 1);
+  saveContacts();
+}
+
+
 function quit() {
   rl.close();
 }
 
 
 async function help() {
-  console.log('a: add new contact\ns: show contacts list\nq: quit');
-  let action = await rl.question('Enter your input: ');
+  console.log('s: show contacts list\na: add new contact\nd: delete a contact\nq: quit');
+  console.log('-----------');
+  const action = await rl.question('Enter your input: ');
 
   switch (action) {
+    case 's':
+      showContactsList();
+      break;
     case 'a':
       await addNewContact();
       break;
-    case 's':
-      showContactsList();
+    case 'd':
+      await deleteContactId();
       break;
     case 'q':
       quit();
       return;
   }
+  console.log('-----------');
   help();
 }
 
