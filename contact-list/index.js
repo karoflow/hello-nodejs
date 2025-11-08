@@ -9,8 +9,7 @@ const rl = readline.createInterface({input, output});
 const contactsList = [];
 
 
-console.log('--- Contacts List ---');
-
+// ------------------------------- Functions -------------------------------
 async function loadContacts() {
   try {
     const contactsListJson = await fs.readFile(CONTACTS_LIST_FILE_PATH, 'utf8');
@@ -88,4 +87,5 @@ async function main() {
 
 
 // ------------------------------- Main code -------------------------------
+console.log('--- Contacts List ---');
 await main();
