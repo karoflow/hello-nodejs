@@ -13,9 +13,12 @@ const contactsList = [];
 async function loadContacts() {
   try {
     const contactsListJson = await fs.readFile(CONTACTS_LIST_FILE_PATH, 'utf8');
-    contactsList.push(
-      ...JSON.parse(contactsListJson)
-    );
+    // check file not empty
+    if (contactsListJson) {
+      contactsList.push(
+        ...JSON.parse(contactsListJson)
+      );
+    }
   } catch (error) {
     throw error;
   }
