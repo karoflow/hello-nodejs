@@ -5,7 +5,7 @@ import fs from 'fs/promises';
 const CONTACTS_LIST_FILE_PATH = './data/contacts-list.json';
 const rl = readline.createInterface({input, output});
 
-// const in this line help us to fix type of variable
+// const helps us to fix type of variable (not the value of)
 const contactsList = [];
 
 
@@ -37,7 +37,7 @@ async function saveContacts() {
 
 async function addNewContact() {
   const lastContact = contactsList[contactsList.length-1];
-  const id = lastContact ? lastContact.id+1 : 0;
+  const id = lastContact ? lastContact.id+1 : 0;        // generate id for new contact (last contact id + 1)
   const firstName = await rl.question('First name: ');
   const lastName = await rl.question('Last name: ');
 
@@ -75,7 +75,7 @@ async function deleteContactId() {
     console.error('Could not find contact with id ' + _id);
     return;
   }
-  contactsList.splice(i, 1);
+  contactsList.splice(i, 1);    // remove one item with index i
   saveContacts();
 }
 
